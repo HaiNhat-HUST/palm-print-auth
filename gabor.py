@@ -174,6 +174,8 @@ def Hog(edge_img):
 def process(path):
     img = Image.open(path)
     img = img.resize((200, 200))
+    # img = img.resize((224, 224)) # for resnet
+    
     # lật ảnh nếu là tay trái 
     if 'l' in path:
         img = img.transpose(Image.FLIP_LEFT_RIGHT)
