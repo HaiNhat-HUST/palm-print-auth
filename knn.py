@@ -64,18 +64,18 @@ def predict(X_img_path, knn_clf=None, model_path=None, distance_threshold=0.6):
     
 
 if __name__ == "__main__":
-    
     """
     print("Training KNN...")
-    classifier = train("./train", model_save_path="trained_knn_model.clf", n_neighbors=2)
+    classifier = train("./train_ver2", model_save_path="trained_knn_model.clf", n_neighbors=2)
     print("Training complete!")
     
     """
+    
     print("Testing KNN...")
     correct_prediction = 0
-    print(len(os.listdir('./test')))
-    for image_dir in os.listdir('./test'):
-        full_file_path = './test/' + image_dir
+    print(len(os.listdir('./test_ver2')))
+    for image_dir in tqdm(os.listdir('./test_ver2')):
+        full_file_path = './test_ver2/' + image_dir
         # print(full_file_path)
         
         # print("Looking for palm print in {}".format(image_dir))
@@ -89,11 +89,13 @@ if __name__ == "__main__":
         if y_test == y_pred:
             correct_prediction += 1
         else:
+            pass
+            """
             print("Looking for palm print in {}".format(image_dir))
             print("Real prediction: ", predictions)
-
+            """
         
         
-    accuracy = correct_prediction / len(os.listdir('./test'))
+    accuracy = correct_prediction / len(os.listdir('./test_ver2'))
     print(f"Accuracy: {accuracy}")
     
